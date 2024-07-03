@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ID</title>
+  </head>
+  <style>
+    #myHeader {
+      background-color: lightblue;
+      color: black;
+      padding: 40px;
+      text-align: center;
+    }
+  </style>
+  <!--ID는 하나만 적용-->
+  <script>
+    function changeText() {
+      document.getElementById("myHeader").innerHTML = "Have a nice day!!!";
+    }
+  </script>
+  <!--myHeader라는 id를 찾아서 내용을 변경하는 함수-->
+  <body style="margin: 40px">
+    <h1 id="myHeader">MyHeader</h1>
+    <a href="#c4">Jump to Chapter 4</a
+    ><!--스크롤 Chapter 4로 이동-->
+    <br /><br /><br /><br />
+    <h2 id="c4">Chapter 4</h2>
+    <button onclick="changeText()">헤더 내용 바꾸기</button>
+  </body>
+</html>
