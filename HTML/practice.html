@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>practice</title>
+  </head>
+  <body style="margin: 40px">
+    <style>
+      label,
+      input,
+      textarea {
+        padding: 5px;
+      }
+      label {
+        font-weight: bold;
+      }
+    </style>
+    <h1 style="text-align: center">회원가입</h1>
+    <form action="#" method="post" style="text-align: center">
+      <label for="userID">사용자 ID:</label>
+
+      <input
+        type="text"
+        name="userID"
+        id="userID"
+        required
+        placeholder="필수입력란"
+      /><br /><br />
+      <label for="pwd">패스워드:</label>
+      <input
+        type="password"
+        name="password"
+        id="pwd"
+        required
+        placeholder="필수입력란"
+      /><br /><br />
+      <label for="pw2">패스워드 확인:</label>
+      <input
+        type="password"
+        name="pw2"
+        id="pwd2"
+        required
+        placeholder="패스워드와 같아야 합니다"
+      /><br /><br />
+      <label for="Username">이름:</label>
+      <input
+        type="text"
+        name="Username"
+        id="Username"
+        required
+        placeholder="필수입력란"
+      /><br /><br />
+      <label for="남 여">성별:</label>
+      <label for="남">남</label>
+      <input type="radio" name="성별" id="남" required checked />
+      <label for="여">여</label>
+      <input type="radio" name="성별" id="여" /><br /><br />
+      <label for="email">이메일:</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        placeholder="필수입력란"
+      /><br /><br />
+      <label for="tel">전화번호:</label>
+      <input type="tel" name="tel" id="tel" /><br /><br />
+      <label for="intro">자기소개:</label><br /><br />
+      <textarea name="intro" id="intro" rows="10" cols="50 "></textarea
+      ><br /><br />
+      <input type="submit" value="제출" />
+      <input type="reset" value="취소" />
+    </form>
+  </body>
+</html>
