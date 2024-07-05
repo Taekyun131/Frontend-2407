@@ -20,9 +20,23 @@
     }
     nav {
       float: left;
-      width: 250px;
-      height: 1000px;
+      width: 200px;
+      height: 650px;
       background-color: blanchedalmond;
+    }
+    article {
+      margin-left: 200px;
+      padding: 30px;
+      height: 1000px;
+    }
+    h3,
+    p {
+      margin: 50px;
+    }
+    footer {
+      text-align: center;
+      background-color: beige;
+      height: 100px;
     }
   </style>
 
@@ -31,28 +45,43 @@
     <header>
       <h3>자기소개</h3>
     </header>
-    <nav>
-      <ol>
-        <li><a href="#born">내가 태어난 곳</a></li>
-        <br /><br />
+    <section>
+      <nav>
+        <ol>
+          <li><a href="#born">내가 태어난 곳</a></li>
+          <br /><br />
 
-        <li><a href="#travel">내가 가봤던 곳</a></li>
-        <br /><br />
+          <li><a href="#travel">내가 가봤던 곳</a></li>
+          <br /><br />
 
-        <li><a href="#food">내가 좋아하는 음식</a></li>
-        <br /><br />
+          <li><a href="#food">내가 좋아하는 음식</a></li>
+          <br /><br />
 
-        <li><a href="#hobby">내가 좋아하는 것(취미)</a></li>
-        <br /><br />
-      </ol>
-    </nav>
-    <article>
-      <h3 class="born">내가 태어난 곳</h3>
-      <p>제가 태어난 곳은</p>
-      <h3 class="travel">내가 가봤던 곳</h3>
-
-      <h3 class="food">내가 좋아하는 음식</h3>
-      <h3 class="hobby">내가 좋아하는 것</h3>
-    </article>
+          <li><a href="#hobby">내가 좋아하는 것(취미)</a></li>
+          <br /><br />
+        </ol>
+      </nav>
+      <article>
+        <h3 id="born">내가 태어난 곳</h3>
+        <p>
+          제가 태어난 곳은 수원시입니다. 수원에서 오랜기간 살다가 현재는
+          화성시에 거주중입니다.
+          <img
+            src="sw.jfif"
+            alt="수원사진"
+            style="float: right; width: 200px; height: 200px"
+          />
+        </p>
+        <h3 id="travel">내가 가봤던 곳</h3>
+        <p>제가 가본 곳 중에 가장 기억에 남는 장소는 제주도 입니다.</p>
+        <h3 id="food">내가 좋아하는 음식</h3>
+        <p>제가 좋아하는 음식은</p>
+        <h3 id="hobby">내가 좋아하는 것</h3>
+        <p></p>
+      </article>
+    </section>
+    <footer>
+      <p>footer</p>
+    </footer>
   </body>
 </html>
