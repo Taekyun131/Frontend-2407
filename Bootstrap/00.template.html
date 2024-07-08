@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bootstrap 5 Example</title>
+    <title>Calendar</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -12,10 +12,36 @@
   </head>
   <body>
     <div class="container-fluid p-5 bg-primary text-white text-center">
-      <h1>Container</h1>
-      <p>resize this responsive page to see the effect!</p>
+      <h1>Calendar</h1>
     </div>
-
-    <div class="container mt-5"></div>
+    <div class="container mt-5">
+      <div class="d-flex justify-content-between">
+        <div>2024-07-08</div>
+        <div>
+          <span class="mx-2"> &lt;&lt;2024.07 &gt;&gt;</span>
+        </div>
+        <div><a href="#">기념일 추가</a></div>
+      </div>
+      <table class="table table-bordered">
+        <tr>
+          <th class="text-danger">일</th>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th class="text-primary">토</th>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>
