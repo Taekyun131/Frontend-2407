@@ -511,113 +511,183 @@
         </span>
       </div>
     </nav>
-  </body>
 
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">일정추가</h4>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-          ></button>
-        </div>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">일정추가</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
 
-        <div class="modal-body">
-          <form action="" method="get">
-            <input type="checkbox" class="text-align-right" />중요
-            <div class="form-floating mb-3 mt-3">
-              <input
-                type="text"
-                class="form-control"
-                id="title"
-                placeholder="제목"
-                name="title"
-              />
-              <label for="title">제목</label>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="form-floating mt-3 mb-3">
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="date1"
-                    placeholder="시작일"
-                    name="date1"
-                  />
-                  <label for="date1">시작일</label>
+          <div class="modal-body">
+            <form action="" method="get">
+              <input type="checkbox" class="form-check-input ms-2" />중요
+              <div class="form-floating mb-3 mt-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  placeholder="제목"
+                  name="title"
+                  required
+                />
+                <label for="title">제목</label>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-floating mt-3 mb-3">
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="date1"
+                      placeholder="시작일"
+                      name="date1"
+                      required
+                    />
+                    <label for="date1">시작일</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-floating mt-3 mb-3">
+                    <input
+                      type="time"
+                      class="form-control"
+                      id="time1"
+                      placeholder="시작시간"
+                      name="time1"
+                      required
+                    />
+                    <label for="date1">시작시간</label>
+                  </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="form-floating mt-3 mb-3">
-                  <input
-                    type="time"
-                    class="form-control"
-                    id="time1"
-                    placeholder="시작시간"
-                    name="time1"
-                  />
-                  <label for="date1">시작시간</label>
+              <div class="row mt-2">
+                <div class="col">
+                  <div class="form-floating mt-3 mb-3">
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="date2"
+                      placeholder="종료일"
+                      name="date2"
+                      required
+                    />
+                    <label for="date2">종료일</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-floating mt-3 mb-3">
+                    <input
+                      type="time"
+                      class="form-control"
+                      id="time2"
+                      placeholder="종료시간"
+                      name="time2"
+                    />
+                    <label for="time2">종료시간</label>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="row mt-2">
-              <div class="col">
-                <div class="form-floating mt-3 mb-3">
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="date2"
-                    placeholder="종료일"
-                    name="date2"
-                  />
-                  <label for="date2">종료일</label>
-                </div>
+              <div class="mt-3 mb-3 form-floating">
+                <textarea
+                  class="form-control"
+                  name="place"
+                  id="place"
+                  placeholder="장소"
+                  required
+                ></textarea>
+                <label for="place">장소</label>
               </div>
-              <div class="col">
-                <div class="form-floating mt-3 mb-3">
-                  <input
-                    type="time"
-                    class="form-control"
-                    id="time2"
-                    placeholder="종료시간"
-                    name="time2"
-                  />
-                  <label for="time2">종료시간</label>
-                </div>
+              <div class="mt-3 mb-3 form-floating">
+                <textarea
+                  class="form-control"
+                  name="memo"
+                  id="memo"
+                  placeholder="메모"
+                ></textarea>
+                <label for="memo">메모</label>
               </div>
-            </div>
-            <div class="mt-3 mb-3 form-floating">
-              <textarea
-                class="form-control"
-                name="place"
-                id="place"
-                placeholder="장소"
-              ></textarea>
-              <label for="place">장소</label>
-            </div>
-            <div class="mt-3 mb-3 form-floating">
-              <textarea
-                class="form-control"
-                name="memo"
-                id="memo"
-                placeholder="메모"
-              ></textarea>
-              <label for="memo">메모</label>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
 
-        <div class="modal-footer">
-          <div>
-            <button class="btn btn-primary" type="submit">확인</button>
-            <button class="btn btn-secondary" type="reset">취소</button>
+          <div class="modal-footer">
+            <div>
+              <button class="btn btn-primary" type="submit">확인</button>
+              <button class="btn btn-secondary" type="reset">취소</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- <div class="modal" id="schedule">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="modal-header">
+            <h4 class="modal-title">일정 추가</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+         
+          <div class="modal-body">
+            <form action="/schedule" method="get">
+              <div class="my-2">
+                <label for="title" class="form-label">
+                  일정명
+                  <label class="form-check-label ms-5">
+                    <input class="form-check-input" type="checkbox" name="importance"><span class="ms-2">중요</span>
+                  </label>
+                </label>
+                <input type="text" class="form-control" name="title" id="title" required>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <div class="my-2">
+                    <label for="sdate" class="form-label">시작일</label>
+                    <input type="date" class="form-control" name="sdate" id="sdate" required>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="my-2">
+                    <label for="stime" class="form-label">시작시간</label>
+                    <input type="time" class="form-control" name="stime" id="stime" required>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="my-2">
+                    <label for="edate" class="form-label">종료일</label>
+                    <input type="date" class="form-control" name="edate" id="edate">
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="my-2">
+                    <label for="etime" class="form-label">종료시간</label>
+                    <input type="time" class="form-control" name="etime" id="etime">
+                  </div>
+                </div>
+              </div>
+              <div class="my-2">
+                <label for="place" class="form-label">장소</label>
+                <input type="text" class="form-control" name="place" id="place" required>
+              </div>
+              <div class="my-2">
+                <label for="memo" class="form-label">메모</label>
+                <input type="text" class="form-control" name="memo" id="memo">
+              </div>
+            </form>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary me-1">제출</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">종료</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </body>
 </html>
