@@ -21,6 +21,7 @@
   <style>
     a {
       text-decoration: none;
+      color: inherit;
     }
     * {
       font-family: "Noto Sans KR", sans-serif;
@@ -61,13 +62,13 @@
             ><img src="img/logo.png" alt="Logo" style="height: 36px"
           /></a>
           <li class="nav-item ms-3">
-            <a class="nav-link active" href="#"
+            <a class="nav-link" href="#"
               ><i class="fa-solid fa-table-list"></i> 게시판</a
             >
           </li>
           <li class="nav-item ms-3">
-            <a class="nav-link" href="#"
-              ><i class="fa-solid fa-user-group"></i> 사용자</a
+            <a class="nav-link active" href="#"
+              ><i class="fa-regular fa-calendar-days"></i>스케줄</a
             >
           </li>
           <li class="nav-item dropdown ms-3">
@@ -145,7 +146,7 @@
                 <a href="#"><i class="fa-solid fa-angle-right"></i></a>
                 <a href="#"><i class="fa-solid fa-angles-right ms-2"></i></a>
               </div>
-              <div>
+              <div data-bs-toggle="modal" data-bs-target="#myModal">
                 <a href="#"
                   ><i class="fa-solid fa-square-plus"></i>기념일 추가</a
                 >
@@ -164,38 +165,59 @@
               </tr>
               <tr>
                 <td class="d-flex justify-content-between">
-                  <div class="text-danger" style="opacity: 0.5">
-                    <strong>30</strong>
+                  <div
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    class="text-danger"
+                    style="opacity: 0.5"
+                  >
+                    <strong><a href="#Mymodal">30</a></strong>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>1</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">1</a></strong>
+                    </div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>2</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">2</a></strong>
+                    </div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>3</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">3</a></strong>
+                    </div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>4</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">4</a></strong>
+                    </div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>5</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">5</a></strong>
+                    </div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div class="text-primary"><strong>6</strong></div>
+                    <div
+                      class="text-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      <strong><a href="#Mymodal">6</a></strong>
+                    </div>
                     <div>소서</div>
                   </div>
                 </td>
@@ -203,45 +225,67 @@
               <tr>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div class="text-danger"><strong>7</strong></div>
-                    <div></div>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <strong>8</strong>
+                    <div
+                      class="text-danger"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      <strong><a href="#Mymodal">7</a></strong>
                     </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>9</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">8</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>10</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">9</a></strong>
+                    </div>
+                    <div></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <strong data-bs-toggle="modal" data-bs-target="#myModal"
+                        ><a href="#Mymodal">10</a></strong
+                      >
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td style="background-color: #efffff">
                   <div class="d-flex justify-content-between">
-                    <div><strong>11</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">11</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>12</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">12</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div class="text-primary"><strong>13</strong></div>
+                    <div
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      class="text-primary"
+                    >
+                      <strong><a href="#Mymodal">13</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
@@ -249,43 +293,65 @@
               <tr>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div class="text-danger"><strong>14</strong></div>
+                    <div
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      class="text-danger"
+                    >
+                      <strong><a href="#Mymodal">14</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>15</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">15</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>16</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">16</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>17</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">17</a></strong>
+                    </div>
                     <div>제헌절</div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>18</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">18</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>19</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">19</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div class="text-primary"><strong>20</strong></div>
+                    <div
+                      class="text-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      <strong><a href="#Mymodal">20</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
@@ -293,43 +359,65 @@
               <tr>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div class="text-danger"><strong>21</strong></div>
+                    <div
+                      class="text-danger"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      <strong><a href="#Mymodal">21</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>22</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">22</a></strong>
+                    </div>
                     <div>대서</div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>23</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">23</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>24</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">24</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>25</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">25</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>26</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">26</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div class="text-primary"><strong>27</strong></div>
+                    <div
+                      class="text-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      <strong><a href="#Mymodal">27</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
@@ -337,44 +425,73 @@
               <tr>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div class="text-danger"><strong>28</strong></div>
+                    <div
+                      class="text-danger"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      <strong><a href="#Mymodal">28</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>29</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">29</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>30</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">30</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div><strong>31</strong></div>
+                    <div data-bs-toggle="modal" data-bs-target="#myModal">
+                      <strong><a href="#Mymodal">31</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div style="opacity: 0.5"><strong>1</strong></div>
+                    <div
+                      style="opacity: 0.5"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      <strong><a href="#Mymodal">1</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div style="opacity: 0.5"><strong>2</strong></div>
+                    <div
+                      style="opacity: 0.5"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      <strong><a href="#Mymodal">2</a></strong>
+                    </div>
                     <div></div>
                   </div>
                 </td>
                 <td>
                   <div class="d-flex justify-content-between">
-                    <div class="text-primary" style="opacity: 0.5">
-                      <strong>3</strong>
+                    <div
+                      class="text-primary"
+                      style="opacity: 0.5"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      <strong><a href="#Mymodal">3</a></strong>
                     </div>
                     <div></div>
                   </div>
@@ -394,4 +511,110 @@
       </div>
     </nav>
   </body>
+
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">일정추가</h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="checkbox" class="text-align-right" />중요
+          <div class="form-floating mb-3 mt-3">
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              placeholder="제목"
+              name="title"
+            />
+            <label for="title">제목</label>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-floating mt-3 mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date1"
+                  placeholder="시작일"
+                  name="date1"
+                />
+                <label for="date1">시작일</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mt-3 mb-3">
+                <input
+                  type="time"
+                  class="form-control"
+                  id="time1"
+                  placeholder="시작시간"
+                  name="time1"
+                />
+                <label for="date1">시작시간</label>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <div class="form-floating mt-3 mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date2"
+                  placeholder="종료일"
+                  name="date2"
+                />
+                <label for="date2">종료일</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mt-3 mb-3">
+                <input
+                  type="time"
+                  class="form-control"
+                  id="time2"
+                  placeholder="종료시간"
+                  name="time2"
+                />
+                <label for="time2">종료시간</label>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 mb-3 form-floating">
+            <textarea
+              class="form-control"
+              name="place"
+              id="place"
+              placeholder="장소"
+            ></textarea>
+            <label for="place">장소</label>
+          </div>
+          <div class="mt-3 mb-3 form-floating">
+            <textarea
+              class="form-control"
+              name="memo"
+              id="memo"
+              placeholder="메모"
+            ></textarea>
+            <label for="memo">메모</label>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div>
+            <button class="btn btn-primary" type="submit">확인</button>
+            <button class="btn btn-secondary" type="reset">취소</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>
