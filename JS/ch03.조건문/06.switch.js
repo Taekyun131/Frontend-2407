@@ -47,6 +47,6 @@ switch (parseInt(score / 10)) {
     grade = "D" + sign;
     break;
   default:
-    grade = "F" + sign;
+    grade = "F";
 }
 console.log(`점수: ${score}, 학점: ${grade}`);
