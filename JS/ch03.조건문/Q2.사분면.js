@@ -19,4 +19,4 @@ if (x > 0) {
   }
 }
 console.log(`(${x},${y})`);
-console.log(`(${x},${y})는 제${Q}사분면 입니다.`);
+console.log(`점 (${x},${y})는 제${Q}사분면 입니다.`);
