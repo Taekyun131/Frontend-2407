@@ -20,3 +20,12 @@ for (let i = 1; i <= 5; i++) {
   }
   console.log(line);
 }
+
+//12의 약수
+let arr12 = [];
+for (let i = 1; i <= 12; i++) {
+  if (12 % i == 0) {
+    arr12.push(i);
+  }
+}
+console.log(arr12);
