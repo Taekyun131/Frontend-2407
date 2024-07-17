@@ -8,7 +8,7 @@ for (let i = 2; i <= 9; i++) {
 }
 
 //다이아몬드 그리기
-let N = 4;
+let N = 4; //가장 많은 별 9개
 for (let i = 0; i <= N; i++) {
   let line = "";
   for (let k = 0; k < N - i; k++) {
