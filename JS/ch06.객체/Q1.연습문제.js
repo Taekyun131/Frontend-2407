@@ -4,7 +4,8 @@ let sum = 0;
 for (let hour = 0; hour <= 23; hour++) {
   for (let minute = 0; minute <= 59; minute++) {
     let timeStr = hour + ":" + minute;
-    if (timeStr.indexOf(3) >= 0) {
+    // if (timeStr.indexOf(3) >= 0) {
+    if (timeStr.includes("3")) {
       sum += 60;
     }
   }
