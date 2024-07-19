@@ -34,5 +34,5 @@ function myMax(...arr) {
   return maxVal;
 }
 
-console.log(myMin(arr), myMax(arr));
+console.log(myMin(...arr), myMax(...arr));
 console.log(myMin(45, 67, 3, 25, 88, 19), myMax(45, 67, 3, 25, 88, 19));

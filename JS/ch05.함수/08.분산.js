@@ -3,7 +3,7 @@ function sumOfSquare(arr) {
   let sum = 0,
     square = 0;
   for (let num of arr) {
-    square = num * num;
+    square = num ** 2;
     sum += square;
   }
   return sum;
@@ -15,7 +15,7 @@ function sqareOfSum(arr) {
     square = 0;
   for (let num of arr) {
     sum += num;
-    square = sum * sum;
+    square = sum ** 2;
   }
   return square;
 }
