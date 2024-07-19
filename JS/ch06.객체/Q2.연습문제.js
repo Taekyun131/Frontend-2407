@@ -22,9 +22,9 @@ for (let i = 0; i < numStr.length; i++) {
   countArr[num]++;
   console.log(countArr);
 }
-// 2. C:/Worspac/Frontend/JS/ch06.객체/Q2.연습문제.js
-//위 문자열에서 파일명 Q2.연습문제.js 만 분리
-let path = " C:/Worspac/Frontend/JS/ch06.객체/Q2.연습문제.js";
+// 2. C:/Workspace/Frontend/JS/ch06.객체/Q2.연습문제.js
+// 위 문자열에서 파일명 Q2.연습문제.js 만 분리
+let path = " C:/Workspace/Frontend/JS/ch06.객체/Q2.연습문제.js";
 let index = path.lastIndexOf("/") + 1;
 console.log(path.substring(index));
 
