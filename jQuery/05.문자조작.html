@@ -15,8 +15,10 @@
         alert($("#first").html()); // 텍스트와 안에 있는 태그도 가져옴
         alert($("h1").text()); // 모든 h1태그의 텍스트를 가져옴
         alert($("h1").html()); // 첫번째 h1 태그의 텍스트와 안에 있는 태그
-        $("h1").text('text() 메소드로 <span style="color: red;">변경</span>'); // 모든 h1 태그의 텍스트가 변경되나 태그 반영안됨
-        $("h1").html('text() 메소드로 <span style="color: red;">변경</span>'); // 모든 h1 태그의 텍스트가 변경되고 태그도 반영됨
+        $("h1").text('text() 메소드로 <span style="color: red;">변경</span>');
+        // 모든 h1 태그의 텍스트가 변경되나 태그 반영안됨
+        $("h1").html('text() 메소드로 <span style="color: red;">변경</span>');
+        // 모든 h1 태그의 텍스트가 변경되고 태그도 반영됨
       });
     </script>
   </head>
