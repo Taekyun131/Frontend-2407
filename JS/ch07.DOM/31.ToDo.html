@@ -22,14 +22,14 @@
 
         const addTodo = () => {
           if (input.value.trim() === "") {
-            alert("올바르게 할 일을 입력하세요.");
+            // alert("올바르게 할 일을 입력하세요.");
             return;
           }
           const item = document.createElement("div");
           const checkbox = document.createElement("input");
           const text = document.createElement("span");
           const button = document.createElement("button");
-          const key = keuCount++;
+          const key = keyCount++;
 
           //item 객체 조작 후 todo-list에 메단다.
           item.setAttribute("data-key", key); //<div data-key='0'>
@@ -56,8 +56,9 @@
           //입력상자 비우기
           input.value = "";
         };
+
         const removeTodo = (key) => {
-          const item = document.querySelector(`[data-key='${key}']`);
+          const item = document.querySelector(`[data-key="${key}"]`);
           todoList.removeChild(item);
         };
 
