@@ -14,6 +14,7 @@
         };
         document.head.appendChild(kakaoScript);
 
+        let place = "경기도청";
         let roadBaseUrl = "https://business.juso.go.kr/addrlink/addrLinkApi.do";
         let kakaoBaseUurl =
           "https://dapi.kakao.com/v2/local/search/address.json";
@@ -67,13 +68,13 @@
         let map = new kakao.maps.Map(container, options);
 
         //마커 생성
-        var marker = new kakao.maps.Marker({
+        let marker = new kakao.maps.Marker({
           map: map,
           position: position, //position으로 해도 됨(키 값과 변수명이 같을 때 생략가능)
         });
 
         //인포 윈도우 생성
-        var infowindow = new kakao.maps.InfoWindow({
+        let infowindow = new kakao.maps.InfoWindow({
           content: `<div style="padding:5px;">${place}</div>`,
         });
         //마우스오버 이벤트, 마우스이벤트 생성
@@ -89,7 +90,7 @@
   <body style="margin: 40px">
     <h1>도로명 주소 API + 카카오로컬 API + 지도</h1>
     <hr />
-    <h3>수원시청</h3>
+    <h3>경기도청</h3>
     <ul>
       <li>도로명 주소: <span id="place"></span></li>
       <li>위도: <span id="lat"></span></li>
