@@ -3,11 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>카카오 맵</title>
-    <!-- <script
-      type="text/javascript"
-      src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=나의 Javascript Key" 
-    ></script> -->
+    <title>카카오 맵 Marker</title>
     <script src="key.js"></script>
     <script>
       window.onload = () => {
@@ -30,6 +26,12 @@
         };
 
         let map = new kakao.maps.Map(container, options);
+
+        //마커 생성
+        var marker = new kakao.maps.Marker({
+          map: map,
+          position: position, //position으로 해도 됨(키 값과 변수명이 같을 때 생략가능)
+        });
       }
     </script>
   </head>
