@@ -50,7 +50,7 @@
                 let lon = parseFloat(result.documents[0].x);
                 document.getElementById("lat").innerHTML = "" + lat;
                 document.getElementById("lon").innerHTML = String(lon);
-                drawMap("place", lat, lon);
+                drawMap(place, lat, lon);
               })
               .catch((error) => {
                 console.log(error);

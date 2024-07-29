@@ -19,7 +19,7 @@
         let kakaoBaseUurl =
           "https://dapi.kakao.com/v2/local/search/address.json";
         let params1 = "currentPage=1&countPerPage=5";
-        let params2 = `keyword=${encodeURIComponent("수원시청")}`;
+        let params2 = `keyword=${encodeURIComponent(place)}`;
         //한글은 반드시 인코딩 필요
         let params3 = `confmKey=${roadAddrKey}&resultType=json`;
         let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`;
@@ -49,7 +49,7 @@
                 document.getElementById("lat").innerHTML = "" + lat;
                 document.getElementById("lon").innerHTML = String(lon);
 
-                drawMap("place", lat, lon);
+                drawMap(place, lat, lon);
               })
               .catch((error) => {
                 console.log(error);
