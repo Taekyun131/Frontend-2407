@@ -20,19 +20,16 @@
           "https://dapi.kakao.com/v2/local/search/address.json";
         let params1 = "currentPage=1&countPerPage=5";
         let params2 = `keyword=${encodeURIComponent(place)}`;
-        //한글은 반드시 인코딩 필요
+
         let params3 = `confmKey=${roadAddrKey}&resultType=json`;
         let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`;
 
-        // document.querySelector("p").innerHTML = url;
-
         fetch(roadUrl)
           .then((respnse) => respnse.json())
-          //fetch(url).then(function(response){return response.json();})
+
           .then((result) => {
-            // console.log(result);
             let roadAddr = result.results.juso[0].roadAddr;
-            //console창의 results의 juso 0번째 의 roadAddr
+
             document.getElementById("place").innerHTML = roadAddr;
 
             let kakaoUrl = `${kakaoBaseUurl}?query=${encodeURIComponent(
@@ -43,7 +40,6 @@
             fetch(kakaoUrl, { headers: header })
               .then((response) => response.json())
               .then((result) => {
-                // console.log(result);
                 let lat = parseFloat(result.documents[0].y);
                 let lon = parseFloat(result.documents[0].x);
                 document.getElementById("lat").innerHTML = "" + lat;
@@ -70,7 +66,7 @@
         //마커 생성
         let marker = new kakao.maps.Marker({
           map: map,
-          position: position, //position으로 해도 됨(키 값과 변수명이 같을 때 생략가능)
+          position: position,
         });
 
         //인포 윈도우 생성
