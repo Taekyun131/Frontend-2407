@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>자기소개</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/68dda164c0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    a {
+      text-decoration: none;
+    }
+    * {
+      font-family: "Noto Sans KR", sans-serif;
+    }
+    th {
+      text-align: center;
+      width: 14.28%;
+    }
+    td {
+      height: 120px;
+    }
+    #h1,
+    #h2,
+    #m1,
+    #m2,
+    #s1,
+    #s2,
+    #colon {
+      width: 50px;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      const kakaoScript = document.createElement("script");
+      kakaoScript.src = `http://dapi.kakao.com/v2/maps/sdk.js?appkey=5f7c22d42d8e4c63ddc1c3a2b645ac2a&autoload=false`;
+      kakaoScript.onload = () => {
+        kakao.maps.load(() => {});
+      };
+      document.head.appendChild(kakaoScript);
+
+      let place = "수원시청";
+      let roadBaseUrl = "https://business.juso.go.kr/addrlink/addrLinkApi.do";
+      let kakaoBaseUurl = "https://dapi.kakao.com/v2/local/search/address.json";
+      let params1 = "currentPage=1&countPerPage=5";
+      let params2 = `keyword=${encodeURIComponent(place)}`;
+      let params3 = `confmKey=devU01TX0FVVEgyMDI0MDcyOTExMTM1ODExNDk2ODk=&resultType=json`;
+      let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`;
+
+      fetch(roadUrl)
+        .then((respnse) => respnse.json())
+        .then((result) => {
+          let roadAddr = result.results.juso[0].roadAddr;
+          let kakaoUrl = `${kakaoBaseUurl}?query=${encodeURIComponent(
+            roadAddr
+          )}`;
+          let header = {
+            Authorization: `KakaoAK 98b89a33b9ea90ade389e290d48adc2e`,
+          };
+
+          fetch(kakaoUrl, { headers: header })
+            .then((response) => response.json())
+            .then((result) => {
+              let lat = parseFloat(result.documents[0].y);
+              let lon = parseFloat(result.documents[0].x);
+              drawMap(place, lat, lon);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
+    };
+
+    function drawMap(place, lat, lon) {
+      let container = document.getElementById("map");
+      let position = new kakao.maps.LatLng(lat, lon);
+      let options = {
+        center: position,
+        level: 6,
+      };
+
+      let map = new kakao.maps.Map(container, options);
+
+      //마커 생성
+      let marker = new kakao.maps.Marker({
+        map: map,
+        position: position,
+      });
+
+      //인포 윈도우 생성
+      let infowindow = new kakao.maps.InfoWindow({
+        content: `<div style="padding:5px;">${place}</div>`,
+      });
+      //마우스오버 이벤트, 마우스이벤트 생성
+      kakao.maps.event.addListener(marker, "mouseover", () => {
+        infowindow.open(map, marker);
+      });
+      kakao.maps.event.addListener(marker, "mouseout", () => {
+        infowindow.close(map, marker);
+      });
+    }
+  </script>
+  <script>
+    function twoDigit(num) {
+      return num < 10 ? "0" + num : String(num);
+    }
+
+    function myDate(now) {
+      const week = "일월화수목금토".split("");
+      return `${now.getFullYear()}-${twoDigit(now.getMonth() + 1)}-${twoDigit(
+        now.getDate()
+      )} (${week[now.getDay()]})
+          `;
+    }
+
+    function myTime(now) {
+      return `${twoDigit(now.getHours())}:${twoDigit(
+        now.getMinutes()
+      )}:${twoDigit(now.getSeconds())}`;
+    }
+
+    setInterval(() => {
+      let now = new Date();
+      let dateStr = myDate(now);
+      document.getElementById("date").innerHTML = dateStr;
+
+      let timeStr = myTime(now);
+      // document.getElementById("time").innerHTML = timeStr;
+      document.getElementById("h1").src = `img/${timeStr[0]}.svg`;
+      document.getElementById("h2").src = `img/${timeStr[1]}.svg`;
+      document.getElementById("m1").src = `img/${timeStr[3]}.svg`;
+      document.getElementById("m2").src = `img/${timeStr[4]}.svg`;
+      document.getElementById("s1").src = `img/${timeStr[6]}.svg`;
+      document.getElementById("s2").src = `img/${timeStr[7]}.svg`;
+    });
+  </script>
+  <body style="height: 2000px">
+    <nav class="navbar navbar-expand-sm bg-light navbar-secondary fixed-top">
+      <div class="container-fluid" style="height: 100px">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item ms-1">
+            <a class="nav-link active" data-bs-toggle="tab" href="#home"
+              ><i class="fa-solid fa-house"></i
+              ><span class="me-1"></span>Home</a
+            >
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" data-bs-toggle="tab" href="#birth"
+              ><i class="fa-solid fa-baby"></i><span class="me-1"></span>출생</a
+            >
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#travel" data-bs-toggle="tab"
+              ><i class="fa-solid fa-plane"></i
+              ><span class="me-1"></span>여행</a
+            >
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" data-bs-toggle="tab" href="#food"
+              ><i class="fa-solid fa-utensils"></i
+              ><span class="me-1"></span>음식</a
+            >
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" data-bs-toggle="tab" href="#hobby"
+              ><i class="fa-solid fa-heart"></i
+              ><span class="me-1"></span>취미</a
+            >
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" href="#schedule" data-bs-toggle="tab"
+              ><i class="fa-regular fa-calendar-days"></i
+              ><span class="me-1"></span>스케줄<span
+                class="badge rounded-pill bg-danger"
+                >2</span
+              ></a
+            >
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" data-bs-toggle="tab" href="#JS"
+              ><i class="fa-brands fa-js"></i> <span class="me-1"></span>JS</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 200px">
+      <div class="row" style="height: 1500px">
+        <div class="col-3 bg-light">
+          <img
+            style="width: 200px; height: 200px"
+            class="rounded mt-3 d-block mx-auto"
+            src="pf.jpg"
+            alt="profile"
+          />
+          <div class="mt-2" style="font-size: 0.9rem">
+            <span>나를 죽이지 못하는 고통은 나를 더욱 강하게 만든다.</span>
+            <a href="#"><span class="badge bg-secondary">수정</span></a>
+          </div>
+          <div class="mt-5">
+            <i class="fa-solid fa-envelope"></i> stk131@naver.com<br />
+            <i class="fa-brands fa-github"></i>
+            <a href="https://github.com/Taekyun131" target="_blank"
+              >Taekyun131</a
+            ><br />
+          </div>
+        </div>
+
+        <div class="col-9 tab-content">
+          <div id="home" class="container tab-pane active">
+            <h3><strong>Home</strong></h3>
+            <hr />
+            <div class="mt-3 text-center">
+              <h2>Welcome!</h2>
+
+              <div class="container mt-5" style="width: 500px; height: 350px">
+                <!-- Carousel -->
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                  <!-- Indicators/dots -->
+                  <div class="carousel-indicators">
+                    <button
+                      type="button"
+                      data-bs-target="#demo"
+                      data-bs-slide-to="0"
+                      class="active"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#demo"
+                      data-bs-slide-to="1"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#demo"
+                      data-bs-slide-to="2"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#demo"
+                      data-bs-slide-to="3"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#demo"
+                      data-bs-slide-to="4"
+                    ></button>
+                  </div>
+
+                  <!-- The slideshow/carousel -->
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="pf.jpg" alt="프로필" class="d-block w-100" />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="jj.jpeg" alt="제주" class="d-block w-100" />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="ita.jfif"
+                        alt="이탈리아"
+                        class="d-block w-100"
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        src="bs.jpeg"
+                        alt="방화수류정"
+                        class="d-block w-100"
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img src="st.jpg" alt="스테이크" class="d-block w-100" />
+                    </div>
+                  </div>
+
+                  <!-- Left and right controls/icons -->
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#demo"
+                    data-bs-slide="prev"
+                  >
+                    <span class="carousel-control-prev-icon"></span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#demo"
+                    data-bs-slide="next"
+                  >
+                    <span class="carousel-control-next-icon"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="birth" class="container tab-pane fade">
+            <h3>태어난 곳</h3>
+            <hr />
+            <div class="row">
+              <h4>수원</h4>
+              <div class="col">
+                <p>
+                  제가 태어난 곳은 수원입니다. 수원시는 대한민국 경기도 중남부에
+                  있는 특례시이자 경기도청 소재지입니다. 수원의 대표적 명소는
+                  고고학적 가치를 지닌 수원화성이 있으며, 광교호수공원은 야경이
+                  아름다워 밤에도 산책을 즐기는 사람들이 많습니다. 수원
+                  통닭골목은 저렴한 가격에 비해 양이 푸짐해 입소문을 타고 전국
+                  각지에서 많은 이들이 찾는 장소 입니다.
+                </p>
+              </div>
+              <div
+                class="col-3"
+                id="map"
+                style="width: 250px; height: 200px"
+              ></div>
+            </div>
+            <div class="row mt-3">
+              <h4>수원의 명소</h4>
+              <p></p>
+              <p>
+                <img
+                  src="bs.jpeg"
+                  alt="방화수류정"
+                  style="
+                    float: left;
+                    margin-right: 10px;
+                    width: 250px;
+                    height: 200px;
+                  "
+                />
+                방화수류정 아래에는 용연(龍淵)이라는 작은 연못이 있고 수원천과도
+                연결되는 연못인데 봄과 가을에 피크닉을 즐기고자 하는 이들로
+                북적이는 장소입니다. 이른바 SNS상에서 퍼진 수원의 인기 관광
+                명소입니다.
+              </p>
+            </div>
+          </div>
+          <div id="travel" class="container tab-pane fade">
+            <h3>여행</h3>
+            <hr />
+            <div class="row">
+              <h4>제주도</h4>
+              <p>
+                <img
+                  src="jj.jpeg"
+                  alt="제주도"
+                  style="
+                    float: right;
+                    margin-left: 10px;
+                    width: 250px;
+                    height: 200px;
+                  "
+                />
+                제가 가본 곳 중에 가장 기억에 남는 장소는 제주도 입니다.
+                제주도를 처음 여행할 때, 이국적인 픙경과 자유로운 분위기에
+                매료되어 여행했던 3박 4일이 매우 짧게 느껴졌었습니다. 해안도로를
+                스쿠터를 타고 즉흥적으로 가고 싶은 곳을 정해 이곳저곳을
+                돌아다니며 행복을 느꼈습니다.
+              </p>
+            </div>
+
+            <div class="row">
+              <h4>이탈리아</h4>
+              <p>
+                <img
+                  src="ita.jfif"
+                  alt="이탈리아"
+                  style="
+                    float: left;
+                    margin-right: 10px;
+                    width: 250px;
+                    height: 200px;
+                  "
+                />
+                제가 가보고 싶은 곳은 이탈리아입니다. 이탈리아에는 베네치아,
+                로마 등등 유명한 관광지가 많아 가보고 싶다는 생각을 했습니다.
+                또, 이탈리아는 음식으로도 유명하기때문에 여행하게 된다면 멋진
+                곳에서 맛있는 음식을 먹으며 이탈리아를 즐기려고 합니다.
+              </p>
+            </div>
+          </div>
+          <div id="food" class="container tab-pane fade">
+            <h3>음식</h3>
+            <hr />
+            <div class="row">
+              <h4>김치찌개</h4>
+              <p>
+                <img
+                  src="kc.jpeg"
+                  alt="김치찌개"
+                  style="
+                    float: right;
+                    margin-left: 10px;
+                    width: 250px;
+                    height: 200px;
+                  "
+                />
+                제가 좋아하는 음식은 김치찌개입니다. 어릴 때부터 식사할 때
+                김치와 함께 먹는 것을 좋아했고, 돼지고기 김치찌개를 특히
+                좋아합니다.
+              </p>
+            </div>
+            <div class="row">
+              <h4>스테이크</h4>
+              <p>
+                <img
+                  src="st.jpg"
+                  alt="고기"
+                  style="
+                    float: left;
+                    margin-right: 10px;
+                    width: 250px;
+                    height: 200px;
+                  "
+                />
+                양식중에서는 스테이크를 좋아합니다. 주방에서 일을 한 적이 있어서
+                고기를 자주 굽기도 하고 먹기도 했는데, 채끝등심 템퍼는
+                미디움레어에서 미디움정도를 선호합니다.
+              </p>
+            </div>
+          </div>
+          <div id="hobby" class="container tab-pane fade">
+            <h3>취미</h3>
+            <hr />
+            <p>
+              <img
+                src="music.jpeg"
+                alt="노래"
+                width="250px"
+                height="200px"
+                style="float: right; margin-left: 10px"
+              />
+              제가 좋아하는 것은 노래듣기입니다. 이동 중일 때나 공부할 때 등
+              노래를 들으며 하는 것을 좋아합니다. 또, 노래부르는 것도 좋아해서
+              혼자 종종 코인노래방을 가기도 합니다.
+            </p>
+          </div>
+          <div id="schedule" class="container tab-pane fade">
+            <!-- 스케줄 -->
+            <div class="container mt-5">
+              <div
+                class="d-flex justify-content-between"
+                style="font-size: 1.2rem"
+              >
+                <div>2024-07-11(목)</div>
+                <div>
+                  <a href="#"><i class="fa-solid fa-angles-left"></i></a>
+                  <a href="#"><i class="fa-solid fa-angle-left ms-2"></i></a>
+                  <span class="mx-2">2024.07</span>
+                  <a href="#"><i class="fa-solid fa-angle-right"></i></a>
+                  <a href="#"><i class="fa-solid fa-angles-right ms-2"></i></a>
+                </div>
+                <div>
+                  <a href="#"
+                    ><i class="fa-solid fa-square-plus"></i>기념일 추가</a
+                  >
+                </div>
+              </div>
+
+              <table class="table table-bordered mt-3">
+                <tr class="table-secondary">
+                  <th class="text-danger">일</th>
+                  <th>월</th>
+                  <th>화</th>
+                  <th>수</th>
+                  <th>목</th>
+                  <th>금</th>
+                  <th class="text-primary">토</th>
+                </tr>
+                <tr>
+                  <td class="d-flex justify-content-between">
+                    <div
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      class="text-danger"
+                      style="opacity: 0.5"
+                    >
+                      <strong><a href="#Mymodal">30</a></strong>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">1</a></strong>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">2</a></strong>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">3</a></strong>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">4</a></strong>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">5</a></strong>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        class="text-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                      >
+                        <strong><a href="#Mymodal">6</a></strong>
+                      </div>
+                      <div>소서</div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        class="text-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                      >
+                        <strong><a href="#Mymodal">7</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">8</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">9</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <strong data-bs-toggle="modal" data-bs-target="#myModal"
+                          ><a href="#Mymodal">10</a></strong
+                        >
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td style="background-color: #efffff">
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">11</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">12</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                        class="text-primary"
+                      >
+                        <strong><a href="#Mymodal">13</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                        class="text-danger"
+                      >
+                        <strong><a href="#Mymodal">14</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">15</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">16</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">17</a></strong>
+                      </div>
+                      <div>제헌절</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">18</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">19</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        class="text-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                      >
+                        <strong><a href="#Mymodal">20</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        class="text-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                      >
+                        <strong><a href="#Mymodal">21</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">22</a></strong>
+                      </div>
+                      <div>대서</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">23</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">24</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">25</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">26</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        class="text-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                      >
+                        <strong><a href="#Mymodal">27</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        class="text-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                      >
+                        <strong><a href="#Mymodal">28</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">29</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">30</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div data-bs-toggle="modal" data-bs-target="#myModal">
+                        <strong><a href="#Mymodal">31</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        style="opacity: 0.5"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                      >
+                        <strong><a href="#Mymodal">1</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        style="opacity: 0.5"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                      >
+                        <strong><a href="#Mymodal">2</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex justify-content-between">
+                      <div
+                        class="text-primary"
+                        style="opacity: 0.5"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                      >
+                        <strong><a href="#Mymodal">3</a></strong>
+                      </div>
+                      <div></div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- 모달 -->
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">일정추가</h4>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                    ></button>
+                  </div>
+
+                  <div class="modal-body">
+                    <form action="" method="get">
+                      <input
+                        type="checkbox"
+                        class="form-check-input ms-2"
+                      />중요
+                      <div class="form-floating mb-3 mt-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="title"
+                          placeholder="제목"
+                          name="title"
+                          required
+                        />
+                        <label for="title">제목</label>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-floating mt-3 mb-3">
+                            <input
+                              type="date"
+                              class="form-control"
+                              id="date1"
+                              placeholder="시작일"
+                              name="date1"
+                              required
+                            />
+                            <label for="date1">시작일</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-floating mt-3 mb-3">
+                            <input
+                              type="time"
+                              class="form-control"
+                              id="time1"
+                              placeholder="시작시간"
+                              name="time1"
+                              required
+                            />
+                            <label for="date1">시작시간</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col">
+                          <div class="form-floating mt-3 mb-3">
+                            <input
+                              type="date"
+                              class="form-control"
+                              id="date2"
+                              placeholder="종료일"
+                              name="date2"
+                              required
+                            />
+                            <label for="date2">종료일</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-floating mt-3 mb-3">
+                            <input
+                              type="time"
+                              class="form-control"
+                              id="time2"
+                              placeholder="종료시간"
+                              name="time2"
+                            />
+                            <label for="time2">종료시간</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-3 mb-3 form-floating">
+                        <textarea
+                          class="form-control"
+                          name="place"
+                          id="place"
+                          placeholder="장소"
+                          required
+                        ></textarea>
+                        <label for="place">장소</label>
+                      </div>
+                      <div class="mt-3 mb-3 form-floating">
+                        <textarea
+                          class="form-control"
+                          name="memo"
+                          id="memo"
+                          placeholder="메모"
+                        ></textarea>
+                        <label for="memo">메모</label>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <div>
+                      <button class="btn btn-primary" type="submit">
+                        확인
+                      </button>
+                      <button class="btn btn-secondary" type="reset">
+                        취소
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="JS" class="container tab-pane fade" onload="setInterval()">
+            <h3>자바스크립트</h3>
+            <hr />
+            <div>
+              <h1 id="date"></h1>
+              <hr />
+              <h1 id="time"></h1>
+              <img id="h1" />
+              <img id="h2" />
+              <img id="colon" src="img/Colon.jpg" />
+              <img id="m1" />
+              <img id="m2" />
+              <img id="colon" src="img/Colon.jpg" />
+              <img id="s1" />
+              <img id="s2" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
