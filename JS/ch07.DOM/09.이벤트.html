@@ -36,20 +36,20 @@
           document.body.removeChild(h3);
         };
 
-        // //btn5: 마우스 오버, 마우스 아웃 이벤트 등록(이미지 보여주기/없애기)
-        // const btn5 = document.getElementById("btn5");
-        // btn5.addEventListener("monseover", () => {
-        //   const img = document.createElement("img");
-        //   img.src = "../../HTML/img/사막.jfif";
-        //   img.width = 360;
-        //   img.style.display = "block";
-        //   img.style.marginTop = "20px";
-        //   document.body.appendChild(img);
-        // });
-        // btn.addEventListener("mouseout", () => {
-        //   const img = document.querySelector("img");
-        //   document.body.removeChild(img);
-        // });
+        //btn5: 마우스 오버, 마우스 아웃 이벤트 등록(이미지 보여주기/없애기)
+        const btn5 = document.getElementById("btn5");
+        btn5.addEventListener("mouseover", () => {
+          const img = document.createElement("img");
+          img.src = "../../HTML/img/사막.jfif";
+          img.width = 360;
+          img.style.display = "block";
+          img.style.marginTop = "20px";
+          document.body.appendChild(img);
+        });
+        btn5.addEventListener("mouseout", () => {
+          const img = document.querySelector("img");
+          document.body.removeChild(img);
+        });
 
         //btn7: a태그의 기본 이벤트 처리를 제거
         const btn7 = document.getElementById("btn7");
