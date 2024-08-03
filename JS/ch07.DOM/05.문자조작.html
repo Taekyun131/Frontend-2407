@@ -15,8 +15,8 @@
         let header = document.querySelector("#header");
         let originalText = header.innerHTML;
         header.textContent = "<i>i 태그입니다.</i>";
-        header.innerHTML = "<br><i>i 태그입니다.</i>";
-        header.innerHTML = "<br>&lt;i&gt;i 태그입니다.&lt;/i&gt";
+        header.innerHTML += "<br><i>i 태그입니다.</i>";
+        header.innerHTML += "<br>&lt;i&gt;i 태그입니다.&lt;/i&gt";
       }
     </script>
   </head>
